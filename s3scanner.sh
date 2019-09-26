@@ -14,7 +14,7 @@ if ! [ -f $1 ]; then
 fi
 
 for i in $(cat $1); do
-    CODE=$(curl -I http://$i.s3.amazonaws.com 2>/dev/null | head -n1 | cut -d" " -f2)
+    CODE=$(curl -o /dev/null --silent --head --write-out '%{http_code}' http://$i.s3.amazonaws.com)
     if [[ $CODE == "200" ]]; then
         echo "$i.s3.amazonaws.com is public!"
     fi
