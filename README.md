@@ -5,3 +5,4 @@ Just simply tests for public buckets. Give it a text file with bucket names to t
 ```
 ./s3scanner.sh bucketfile.txt
 ```
+
